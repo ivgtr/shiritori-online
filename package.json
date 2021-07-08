@@ -1,0 +1,31 @@
+{
+  "name": "shiritori-online",
+  "private": true,
+  "license": "MIT",
+  "workspaces": [
+    "./packages/*"
+  ],
+  "scripts": {
+    "dev": "run-p dev:browser dev:cli",
+    "dev:browser": "cd ./packages/browser && npm run dev",
+    "dev:cli": "cd ./packages/cli && npm run dev",
+    "build": "run-p build:cli build:browser",
+    "build:browser": "cd ./packages/browser && npm run build",
+    "build:cli": "cd ./packages/cli && npm run build",
+    "fmt": "npm run cl:lint && npm run sr:lint",
+    "fmt:browser": "prettier -w ./packages/browser/src/*",
+    "fmt:cli": "prettier -w ./packages/cli/src/*",
+    "setup": "npm run && run-p setup:browser setup:cli",
+    "setup:browser": "cd ./packages/browser && npm install",
+    "setup:cli": "cd ./packages/cli && npm install"
+  },
+  "devDependencies": {
+    "@types/node": "^16.0.0",
+    "eslint": "^7.30.0",
+    "eslint-config-sumikko": "^1.2.1",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.3.2",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.5"
+  }
+}
