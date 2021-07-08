@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build --base=/shiritori-online/"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",
@@ -26,6 +26,7 @@
     "postcss": "^8.3.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "tailwindcss": "^2.2.4"
+    "tailwindcss": "^2.2.4",
+    "uuid": "^8.3.2"
   }
 }
