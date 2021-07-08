@@ -7,17 +7,17 @@
   ],
   "scripts": {
     "dev": "run-p dev:browser dev:cli",
-    "dev:browser": "cd ./packages/browser && npm run dev",
-    "dev:cli": "cd ./packages/cli && npm run dev",
+    "dev:browser": "cd ./packages/browser && yarn dev",
+    "dev:cli": "cd ./packages/cli && yarn dev",
     "build": "run-p build:cli build:browser",
-    "build:browser": "cd ./packages/browser && npm run build",
-    "build:cli": "cd ./packages/cli && npm run build",
-    "fmt": "npm run cl:lint && npm run sr:lint",
+    "build:browser": "cd ./packages/browser && yarn build",
+    "build:cli": "cd ./packages/cli && yarn build",
+    "fmt": "yarn cl:lint && yarn sr:lint",
     "fmt:browser": "prettier -w ./packages/browser/src/*",
     "fmt:cli": "prettier -w ./packages/cli/src/*",
-    "setup": "npm run && run-p setup:browser setup:cli",
-    "setup:browser": "cd ./packages/browser && npm install",
-    "setup:cli": "cd ./packages/cli && npm install"
+    "setup": "yarn install && run-p setup:browser setup:cli",
+    "setup:browser": "cd ./packages/browser && yarn",
+    "setup:cli": "cd ./packages/cli && yarn"
   },
   "devDependencies": {
     "@types/node": "^16.0.0",
