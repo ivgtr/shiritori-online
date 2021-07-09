@@ -1,0 +1,31 @@
+name: Deploy to gh-pages
+on:
+  push:
+    paths:
+      - "packages/browser/**"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-get-dir.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 15
+      - name: Build
+        run: |
+          yarn
+          yarn build
+        working-directory: ./packages/browser
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/browser/dist
+          force_orphan: true
