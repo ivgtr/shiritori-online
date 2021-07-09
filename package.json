@@ -14,6 +14,13 @@
     "build:website": "lerna run build --scope shiritori-online",
     "build:cli": "lerna run build --scope shiritori-cli",
     "clean": "lerna run clean",
+    "prepublish": "npm-run-all clean build",
+    "versionup": "lerna version --conventional-commits",
+    "versionup:patch": "lerna version patch --conventional-commits",
+    "versionup:minor": "lerna version minor --conventional-commits",
+    "versionup:major": "lerna version major --conventional-commits",
+    "versionup:cancel": "git tag --points-at HEAD | xargs -I{} git tag --delete {} && git reset --hard HEAD^",
+    "release": "lerna publish from-package",
     "format": "prettier -w \"**/*.{js,jsx,ts,tsx,css}\""
   },
   "devDependencies": {

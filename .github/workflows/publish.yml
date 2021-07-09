@@ -25,8 +25,8 @@ jobs:
       - name: Build
         run: |
           yarn --pure-lockfile --ignore-optional
-          yarn build
-        working-directory: ./packages/cli
+          yarn run bootstrap
+          yarn run build:cli
       - name: Publish
         uses: JS-DevTools/npm-publish@v1
         with:
