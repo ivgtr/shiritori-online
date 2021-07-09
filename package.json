@@ -6,15 +6,14 @@
     "./packages/*"
   ],
   "scripts": {
+    "setup": "yarn && lerna boostrap",
     "bootstrap": "lerna bootstrap",
-    "dev": "run-p dev:website dev:cli",
     "dev:website": "cd ./packages/website && yarn dev",
     "dev:cli": "cd ./packages/cli && yarn dev",
-    "build": "run-p build:cli build:website",
+    "build": "lerna run build",
     "build:website": "lerna run build --scope shiritori-online",
     "build:cli": "lerna run build --scope shiritori-cli",
     "clean": "lerna run clean",
-    "prepublish": "npm-run-all clean build",
     "versionup": "lerna version --conventional-commits",
     "versionup:patch": "lerna version patch --conventional-commits",
     "versionup:minor": "lerna version minor --conventional-commits",

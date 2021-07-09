@@ -2,7 +2,7 @@ name: Deploy to gh-pages
 on:
   push:
     paths:
-      - "packages/website/**"
+      - "packages/website/src"
   workflow_dispatch:
 
 jobs:
