@@ -20,9 +20,9 @@ const readUserInput = async (question: string): Promise<string> => {
 };
 
 export const shiritori = async (word: string) => {
-  const spinner = ora(`${chalk.bgYellow.black("WAITING")} 通信中...`).start();
+  const spinner1 = ora(`${chalk.bgYellow.black("WAITING")} 通信中...`).start();
   const questions = await getShiritori();
-  spinner.succeed(`${chalk.bgGreen("FINISH!")} 現在の回答:${questions.word}`);
+  spinner1.succeed(`${chalk.bgGreen("FINISH!")} 現在の回答:${questions.word}`);
 
   let answer: string;
   if (!word) {
@@ -31,13 +31,11 @@ export const shiritori = async (word: string) => {
     });
   } else answer = word;
 
+  const spinner2 = ora(`${chalk.bgYellow.black("WAITING")} 判定中...`).start();
   const judge = await judgeShiritori({ word: answer, user: uuid() });
+  spinner2.stop();
 
-  if (judge.result) {
-    return { result: judge.result, answer, text: judge.text };
-  } else {
-    return { result: judge.result, answer, text: judge.text };
-  }
+  return { result: judge.result, answer, text: judge.text };
 };
 
 export const shiritoriList = async () => {
