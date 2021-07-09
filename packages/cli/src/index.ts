@@ -1,4 +1,5 @@
 import chalk from "chalk";
+import ora from "ora";
 import * as readline from "readline";
 import { v4 as uuid } from "uuid";
 import { getShiritori, judgeShiritori } from "./utils/requestShiritori.js";
@@ -19,12 +20,13 @@ const readUserInput = async (question: string): Promise<string> => {
 };
 
 export const shiritori = async (word: string) => {
+  const spinner = ora(`${chalk.bgYellow.black("WAITING")} 通信中...`).start();
   const questions = await getShiritori();
-  console.log(`${chalk.bgBlue("Questions")} 現在の回答:${questions.word}`);
+  spinner.succeed(`${chalk.bgGreen("FINISH!")} 現在の回答:${questions.word}`);
 
   let answer: string;
   if (!word) {
-    answer = await readUserInput(`${chalk.bgGreen("Input")} 回答を入力してね:`).catch((e) => {
+    answer = await readUserInput(`${chalk.bgBlue("Input")} 回答を入力してね:`).catch((e) => {
       throw new Error(e.message);
     });
   } else answer = word;
@@ -39,8 +41,9 @@ export const shiritori = async (word: string) => {
 };
 
 export const shiritoriList = async () => {
+  const spinner = ora(`${chalk.bgYellow.black("WAITING")} 通信中...`).start();
   const { words } = await getShiritori();
-  console.log(`${chalk.bgGreen("FINISH!")} ${words.length}件のデータを取得`);
+  spinner.succeed(`${chalk.bgGreen("FINISH!")} ${words.length}件のデータを取得`);
   words[words.length - 1] = chalk.black.bgYellow(words[words.length - 1]);
   console.log(words.join(chalk.yellow("→")));
 };
