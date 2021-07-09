@@ -14,6 +14,7 @@ const readUserInput = async (question: string): Promise<string> => {
     prompts.question(question, (answer) => {
       if (!answer) reject(new Error("回答がないよ"));
       resolve(answer);
+
       prompts.close();
     });
   });
@@ -32,7 +33,10 @@ export const shiritori = async (word: string) => {
   } else answer = word;
 
   const spinner2 = ora(`${chalk.bgYellow.black("WAITING")} 判定中...`).start();
-  const judge = await judgeShiritori({ word: answer, user: uuid() });
+  const judge = await judgeShiritori({ word: answer, user: uuid() }).catch((e) => {
+    spinner2.stop();
+    throw new Error(e.message);
+  });
   spinner2.stop();
 
   return { result: judge.result, text: judge.text, word: judge.word };
