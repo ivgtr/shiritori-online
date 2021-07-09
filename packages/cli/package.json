@@ -30,7 +30,7 @@
   },
   "files": [
     "lib",
-    "src/cli.ts"
+    "src"
   ],
   "scripts": {
     "start": "tsc -w",
