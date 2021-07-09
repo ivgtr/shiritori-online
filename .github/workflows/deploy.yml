@@ -2,7 +2,7 @@ name: Deploy to gh-pages
 on:
   push:
     paths:
-      - "packages/browser/**"
+      - "packages/website/**"
   workflow_dispatch:
 
 jobs:
@@ -27,11 +27,11 @@ jobs:
       - name: Build
         run: |
           yarn --pure-lockfile --ignore-optional
-          yarn build
-        working-directory: ./packages/browser
+          yarn run bootstrap
+          yarn run build:website
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./packages/browser/dist
+          publish_dir: ./packages/website/dist
           force_orphan: true

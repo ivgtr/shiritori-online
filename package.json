@@ -6,12 +6,13 @@
     "./packages/*"
   ],
   "scripts": {
-    "dev": "run-p dev:browser dev:cli",
-    "dev:browser": "cd ./packages/browser && yarn dev",
+    "dev": "run-p dev:website dev:cli",
+    "dev:website": "cd ./packages/website && yarn dev",
     "dev:cli": "cd ./packages/cli && yarn dev",
-    "build": "run-p build:cli build:browser",
-    "build:browser": "cd ./packages/browser && yarn build",
-    "build:cli": "cd ./packages/cli && yarn build",
+    "build": "run-p build:cli build:website",
+    "build:website": "lerna run build --scope shiritori-online",
+    "build:cli": "lerna run build --scope shiritori-cli",
+    "clean": "lerna run clean",
     "format": "prettier -w \"**/*.{js,jsx,ts,tsx,css}\""
   },
   "devDependencies": {
