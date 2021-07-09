@@ -5,7 +5,7 @@ import { v4 as uuid } from "uuid";
 import { Loader } from "../Loader";
 
 export type Shiritori = { word: string; user: string; words: string[] };
-type JudgeResult = { result: boolean; text: string };
+type JudgeResult = { result: boolean; text: string; word: string };
 
 const API_URL = "https://shiritori-api.glitch.me/shiritori";
 
@@ -75,9 +75,9 @@ export const PageContents: React.VFC = () => {
               };
               const judge = judgeShiritori(answer).then((judge) => {
                 if (judge.result) {
-                  alert(`正解: '${input.value}'を回答しました！`);
+                  alert(`正解: '${judge.word}'を回答しました！`);
                 } else {
-                  alert(`${"(´- ₃ -`) ﾌﾞﾌﾞｰ"} '${input.value}'は間違いです、${judge.text}`);
+                  alert(`${"(´- ₃ -`) ﾌﾞﾌﾞｰ"} '${judge.word}'は間違いです、${judge.text}`);
                 }
                 input.value = "";
               });

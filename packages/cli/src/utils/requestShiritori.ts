@@ -16,4 +16,4 @@ export const judgeShiritori = (answer: { word: string; user: string }) =>
         },
       }
     )
-    .then<{ result: boolean; text: string }>((result) => result.data);
+    .then<{ result: boolean; text: string; word: string }>((result) => result.data);

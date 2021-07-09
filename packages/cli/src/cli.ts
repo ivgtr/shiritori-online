@@ -46,9 +46,9 @@ Examples
   }
 
   shiritori(input[0])
-    .then(({ result, answer, text }) => {
-      if (result) return console.log(`${chalk.bgGreen("SUCCESS!")} '${answer}'を回答しました！`);
-      console.log(`${chalk.bgRed("(´- ₃ -`) ﾌﾞﾌﾞｰ")} '${answer}'は間違いです、${text}`);
+    .then(({ result, text, word }) => {
+      if (result) return console.log(`${chalk.bgGreen("SUCCESS!")} '${word}'を回答しました！`);
+      console.log(`${chalk.bgRed("(´- ₃ -`) ﾌﾞﾌﾞｰ")} '${word}'は間違いです、${text}`);
     })
     .catch((err) => {
       console.error(`${chalk.bgRed("ERROR!")} ${err.message}`);

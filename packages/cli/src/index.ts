@@ -35,7 +35,7 @@ export const shiritori = async (word: string) => {
   const judge = await judgeShiritori({ word: answer, user: uuid() });
   spinner2.stop();
 
-  return { result: judge.result, answer, text: judge.text };
+  return { result: judge.result, text: judge.text, word: judge.word };
 };
 
 export const shiritoriList = async () => {
