@@ -8,7 +8,9 @@ export const App = () => {
   return (
     <Container>
       <PageHeader />
+
       <PageContents />
+
       <PageFooter />
     </Container>
   );
