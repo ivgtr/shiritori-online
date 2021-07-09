@@ -26,12 +26,20 @@ const getShititori = (url: string) => {
   return axios.get(url).then<Shiritori>((result) => result.data);
 };
 
+const Loading = React.memo(() => {
+  return (
+    <div className="h-full w-full flex items-center justify-center">
+      <Loader />
+    </div>
+  );
+});
+
 export const PageContents: React.VFC = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const { data, error } = useSWR(API_URL, getShititori);
 
   if (error) return <div>failed to load</div>;
-  if (!data) return <Loader />;
+  if (!data) return <Loading />;
 
   return (
     <main>
@@ -39,7 +47,7 @@ export const PageContents: React.VFC = () => {
         <h3>既に出た単語</h3>
         <div>
           <textarea
-            defaultValue={data.words.join("→")}
+            value={data.words.join("→")}
             readOnly
             rows={10}
             className="w-full p-2 resize-y cursor-default"
@@ -60,7 +68,7 @@ export const PageContents: React.VFC = () => {
               e.preventDefault();
 
               const input = inputRef.current;
-              if (!input?.value) return;
+              if (!input?.value) return alert("入力してね");
               const answer = {
                 word: input.value,
                 user: uuid(),
