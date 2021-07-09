@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - "packages/browser/**"
+  workflow_dispatch:
 
 jobs:
   deploy:
