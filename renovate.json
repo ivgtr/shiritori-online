@@ -1,5 +1,6 @@
 {
   "extends": [
-    "@azu:maintenance"
+    "@azu:maintenance",
+    "schedule:weekly"
   ]
 }
