@@ -23,7 +23,7 @@
     "format": "prettier -w \"**/*.{js,jsx,ts,tsx,css}\""
   },
   "devDependencies": {
-    "@types/node": "^16.0.0",
+    "@types/node": "16.0.1",
     "eslint": "7.30.0",
     "eslint-config-sumikko": "1.2.1",
     "lerna": "^4.0.0",
