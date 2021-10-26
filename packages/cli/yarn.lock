@@ -1315,7 +1315,7 @@
   resolved "https://registry.yarnpkg.com/@types/minimist/-/minimist-1.2.2.tgz#ee771e2ba4b3dc5b372935d549fd9617bf345b8c"
   integrity sha512-jhuKLIRrhvCPLqwPcx6INqmKeiA5EWrsCOPhrlFSrbrmU4ZMPjj5Ul/oLCMDO98XRUIwVm78xICz4EPCektzeQ==
 
-"@types/node@*", "@types/node@^16.0.1":
+"@types/node@*", "@types/node@16.0.1":
   version "16.0.1"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-16.0.1.tgz#70cedfda26af7a2ca073fdcc9beb2fff4aa693f8"
   integrity sha512-hBOx4SUlEPKwRi6PrXuTGw1z6lz0fjsibcWCM378YxsSu/6+C30L6CR49zIBKHiwNWCYIcOLjg4OHKZaFeLAug==
@@ -1332,15 +1332,15 @@
   dependencies:
     "@types/node" "*"
 
-"@types/update-notifier@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@types/update-notifier/-/update-notifier-5.0.1.tgz#cb492a31ffe958818fab973e3c83c7e5239cb520"
-  integrity sha512-MCYeVOuxNyaXez3r6R93uFwOOJ8EhqFpconkNN3uGzXBJgGhO87PQir61hU+IdMs7gor440UYm7nuJvcPaIooA==
+"@types/update-notifier@5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@types/update-notifier/-/update-notifier-5.1.0.tgz#52ed6a2e9851fd6f1c88e93c85e8a0e1d5500fda"
+  integrity sha512-aGY5pH1Q/DcToKXl4MCj1c0uDUB+zSVFDRCI7Q7js5sguzBTqJV/5kJA2awofbtWYF3xnon1TYdZYnFditRPtQ==
   dependencies:
     "@types/configstore" "*"
     boxen "^4.2.0"
 
-"@types/uuid@^8.3.1":
+"@types/uuid@8.3.1":
   version "8.3.1"
   resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-8.3.1.tgz#1a32969cf8f0364b3d8c8af9cc3555b7805df14f"
   integrity sha512-Y2mHTRAbqfFkpjldbkHGY8JIzRN6XqYRliG8/24FcHm2D2PwW24fl5xMRTVGdrb7iMrwCaIEbLWerGIkXuFWVg==
